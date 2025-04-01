@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookBuzz - Book List</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #d2b48c; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .header i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .header span {
+            color: black;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f4f1e8;
+            padding: 10px 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a3e2b;
+            margin-right: 20px;
+        }
+        .logo span {
+            color: #b0835a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-grow: 1;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #5a3e2b;
+            font-size: 16px;
+        }
+        .top-picks {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8f8f8;
+        }
+        .top-picks h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .book-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .book-card {
+            background: white;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: scale(1.05);
+        }
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .book-card h3 {
+            font-size: 1.2rem;
+            margin: 10px 0 5px;
+        }
+        .book-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+        .stars {
+            display: flex;
+        }
+        .star {
+            font-size: 24px;
+            color: gray;
+        }
+        .star.filled {
+            color: orange;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fdfaf6;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #d2b48c; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .header i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .header span {
+            color: black;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f4f1e8;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a3e2b;
+        }
+
+        .logo span {
+            color: #b0835a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5a3e2b;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #b0835a;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff;
+            color: #5a3e2b;
+            width: 100%;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            color: #b0835a;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 10px auto;
+            line-height: 1.8;
+        }
+
+        /* Social Media Section */
+        .social-media {
+            background-color: #d2b48c;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-media h3 {
+            color: black;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 28px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #5a3e2b;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #f4f1e8;
+            color: black;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 80%;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .footer-content div {
+            margin-bottom: 20px;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-content p a {
+            color: black;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-content p a:hover {
+            color: #b0835a;
+        }
+
+        .footer-social p {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-social a:hover {
+            color: #b0835a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="Women.html">Celebrate Women’s History</a>
+        <span>Discover compelling nonfiction reads > </span>
+    </div>
+    
+    <div class="navbar">
+        <div class="logo">Book<span>buzz</span></div>
+        <div class="nav-links">
+            <a href="Booksreview.html">Home</a>
+            <a href="Searchyourpage.html">Search Your Genres</a>
+            <a href="Genere.html">Book List</a>
+            <a href="Toppicks.html">Top Picks</a>
+            <a href="About.html">About</a>
+        </div>
+    </div>
+
+    <section class="Geners">
+        <h2 style="text-align: center;">Fictional</h2>
+        <hr style="width: 30%;size: 20px;">
+        <br>
+        <div class="book-container">
+            <div class="book-card">
+                <img src ="C:\Users\lenovo\OneDrive\Desktop\great gatsby.jpeg" alt="Fictional Book 1">
+                <h3>The Great Gatsby</h3>
+                <p>A tragic tale of love, wealth, and the American Dream set in the Roaring Twenties. Jay Gatsby’s obsession with rekindling his romance with Daisy Buchanan highlights the emptiness of material success. Fitzgerald’s lyrical writing captures both the glamour and moral decay of high society.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\mockingbird.jpeg" alt="Fictional Book 2">
+                <h3>To Kill A Mockingbird</h3>
+                <p>A powerful novel about racism and justice in the Deep South, told through the eyes of Scout Finch. Her father, Atticus, defends a Black man wrongly accused of a crime, revealing deep-seated prejudice. The story beautifully blends childhood innocence with serious social themes.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\brave new world.jpeg" alt="Fictional Book 3">
+                <h3>Brave New World</h3>
+                <p>A dystopian vision of a society where people are engineered for happiness at the cost of individuality. In this world of constant pleasure and control, true emotions and free will are lost. Huxley’s novel warns about the dangers of technology, consumerism, and authoritarianism.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section class="Geners">
+        <h2 style="text-align: center;">Non-Fictional</h2>
+        <hr style="width: 30%;size: 20px;">
+        <br>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\sapiens.jpeg" alt="Non-Fictional Book 1">
+                <h3>Sapiens</h3>
+                <p>A fascinating journey through human history, from early hunter-gatherers to modern civilization. Harari explores how revolutions in cognition, agriculture, and science shaped our societies. The book challenges conventional views on progress, culture, and the future of humanity.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\into the wild.jpeg" alt="Non-Fictional 2">
+                <h3>Into The Wild</h3>
+                <p>The true story of Christopher McCandless, who abandoned society to live in the Alaskan wilderness. Krakauer explores his motivations, idealism, and the risks of isolation. It’s both an adventure story and a deep reflection on freedom, survival, and the human spirit.                </p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\diary of a young girl.jpeg" alt="Non-Fictional 3">
+                <h3>The Diary Of A Young Girl</h3>
+                <p>Anne Frank’s deeply moving diary documents her life in hiding during WWII. She shares her thoughts, fears, and hopes while facing the horrors of war. Her words remain a testament to resilience, innocence, and the cruelty of discrimination.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section class="Geners">
+        <h2 style="text-align: center;">Crime</h2>
+        <hr style="width: 30%;size: 20px;">
+        <br>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\girl with the dragon tattoo.jpeg" alt="Crime Book 1">
+                <h3>The Girl With The Dragon Tattoo</h3>
+                <p>**The Girl with the Dragon Tattoo** is a gripping mystery thriller by Stieg Larsson. It follows journalist Mikael Blomkvist and hacker Lisbeth Salander as they uncover dark family secrets while investigating a decades-old disappearance. The novel blends crime, corruption, and psychological depth, making it a compelling and intense read.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\big little lies.jpg" alt="Crime Book 2">
+                <h3>Big Little Lies</h3>
+                <p>**Big Little Lies** by Liane Moriarty is a gripping psychological thriller that unravels secrets, lies, and the complexities of female friendships. Set in an upscale seaside town, the story follows three women whose seemingly perfect lives hide dark truths. With sharp humor and deep emotional layers, it builds up to a shocking and suspenseful climax.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\silence of.jpeg" alt="Crime Book 3">
+                <h3>The Silence of the Lambs</h3>
+                <p>**The Silence of the Lambs** by Thomas Harris is a chilling psychological thriller that follows FBI trainee Clarice Starling as she seeks help from the brilliant yet terrifying cannibal, Dr. Hannibal Lecter, to catch a serial killer. The novel masterfully blends suspense, crime, and psychological manipulation. With its intense atmosphere and unforgettable characters, it remains a classic in the thriller genre.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section class="Geners">
+        <h2 style="text-align: center;">Horror</h2>
+        <hr style="width: 30%;size: 20px;">
+        <br>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\dracula.webp" alt="Horror Book 1">
+                <h3>Dracula</h3>
+                <p>**Dracula** by Bram Stoker is a gothic horror classic that introduced the iconic vampire Count Dracula. Told through journal entries and letters, it follows Jonathan Harker and his allies as they battle the ancient and sinister vampire. The novel blends suspense, mystery, and supernatural terror, shaping modern vampire lore. Its eerie atmosphere and timeless themes make it a must-read for horror fans.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\the excorcist.jpg" alt="Horror Book 2">
+                <h3>The Exorcist</h3>
+                <p>**The Exorcist** by William Peter Blatty is a terrifying horror novel about a young girl, Regan, who becomes possessed by a demonic force. As her condition worsens, her mother seeks help from priests to perform an exorcism. Blending psychological suspense with supernatural horror, the novel explores faith, evil, and fear. Its chilling atmosphere and shocking scenes make it one of the most haunting books ever written.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\amityville.jpeg" alt="Horror Book 3">
+                <h3>The Amityville Horror</h3>
+                <p>**The Amityville Horror** by Jay Anson is a chilling account of a family’s real-life paranormal experiences in their new home. Shortly after moving in, the Lutz family is tormented by strange noises, eerie visions, and violent supernatural forces. The novel blends horror and suspense, leaving readers questioning the truth behind the events. Whether fact or fiction, it remains one of the most famous haunted house stories ever told.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section class="Geners">
+        <h2 style="text-align: center;">Romance</h2>
+        <hr style="width: 30%;size: 20px;">
+        <br>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\me before you.jpeg" alt="Romance Book 1">
+                <h3>Me Before You</h3>
+                <p>**Me Before You** by Jojo Moyes is an emotional romance about Louisa, a quirky young woman, who becomes a caregiver for Will, a wealthy man paralyzed from an accident. As their bond deepens, Louisa tries to show Will that life is still worth living. The novel explores love, loss, and difficult choices, leaving readers heartbroken yet deeply moved.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\the notebook.jpeg" alt="Romance Book 2">
+                <h3>The Notebook</h3>
+                <p>The Notebook by Nicholas Sparks is a heartfelt romance about Noah and Allie, whose love withstands time, separation, and hardships. Told through past and present timelines, it explores themes of true love, fate, and devotion. The novel’s emotional depth and timeless romance make it a beloved classic.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\twilight.jpeg" alt="Romance Book 3">
+                <h3>Twilight</h3>
+                <p>Twilight by Stephenie Meyer is a paranormal romance that follows Bella Swan, a teenager who falls in love with Edward Cullen, a mysterious vampire. Their love is tested by supernatural dangers and their differences. With its mix of romance, suspense, and fantasy, it became a cultural phenomenon.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section class="Geners">
+        <h2 style="text-align: center;">Fantasy</h2>
+        <hr style="width: 30%;size: 20px;">
+        <br>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\hobbit.jpeg" alt="Fantasy Book 1">
+                <h3>The Hobbit</h3>
+                <p>**The Hobbit** by J.R.R. Tolkien is a classic fantasy adventure following Bilbo Baggins, a reluctant hobbit who embarks on a quest with dwarves to reclaim their homeland from the dragon Smaug. Along the journey, Bilbo encounters trolls, goblins, and the One Ring, which shapes the fate of Middle-earth. With rich storytelling and unforgettable characters, it’s a timeless tale of bravery and self-discovery.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\wheel of time.jpg" alt="Fantasy Book 2">
+                <h3>The Wheel of Time</h3>
+                <p>A young hero is destined to confort dark forces**The Wheel of Time** by Robert Jordan is an epic fantasy series set in a richly detailed world where time is cyclical, and destiny weaves heroes into a grand battle between good and evil. It follows Rand al’Thor and his companions as they discover their fates in the struggle against the Dark One. Blending mythology, intricate world-building, and deep character arcs, the series is a cornerstone of modern fantasy.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="C:\Users\lenovo\OneDrive\Desktop\eragon.jpeg" alt="Fantasy Book 3">
+                <h3>Eragon</h3>
+                <p>**Eragon** by Christopher Paolini is a thrilling fantasy novel about a farm boy who discovers a mysterious dragon egg, setting him on a path to become a Dragon Rider. As he trains in magic and combat, he joins a rebellion against the evil King Galbatorix. Filled with adventure, mythical creatures, and epic battles, the novel is a captivating tale of destiny and heroism.</p>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star ">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <br>
+    <br>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Know Us</h3>
+                ℹ️<a style="color: black; " href="Aboutus.html">About Us</a><br>
+                📞 <a href="tel:+91 75066 05110" style="text-decoration: none; color: black;">Diya Koli</a><br>
+                📞 <a href="tel:+91 88568 36209" style="text-decoration: none; color: black;">Sakshi Kadam</a><br>
+                📞 <a href="tel:+91 85910 11478" style="text-decoration: none; color: black;">Shruti Meshram</a><br>
+                📞 <a href="tel:+91 89284 98975" style="text-decoration: none; color: black;">Darshita Mahpankar</a><br>
+                
+            </div>
+            <div >
+                <h3> GIVE US YOUR REVIEW</h3>
+                <p>
+                    <a href="https://forms.gle/ScmvD5oJ7YLMjFVAA" style="text-decoration: none; color: black;">
+                        📄Fill the Form
+                    </a>
+                </p>
+                <p>
+                     <a href="mailto:fs20if026@gmail.com" style="text-decoration: none; color: black;">✉️E-Mail us</a>
+                    
+                </p>
+            </div>
+            
+            <div class="footer-social">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+                <h3>CONNECT</h3>
+                <p>
+                    <a href="https://www.instagram.com" target="_blank" style="text-decoration: none; color: black; font-size: 18px;">
+                        <i class="fab fa-instagram" style="color: #E4405F;"></i> Instagram
+                    </a>
+                </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+
+                <h3>REFERENCES</h3>
+                <a href="https://www.goodreads.com" target="_blank" style="text-decoration: none; color: black; display: flex; align-items: center;">
+                    📖 <span style="margin-left: 8px;">Goodreads.com</span>
+                </a>
+            
+                <a href="https://www.amazon.com/Kindle-eBooks" target="_blank" style="text-decoration: none; color: black; display: flex; align-items: center;">
+                    📚 <span style="margin-left: 8px;">Kindle eBooks</span>
+                </a>
+            
+                <a href="https://www.nytimes.com/section/books" target="_blank" style="text-decoration: none; color: black; display: flex; align-items: center;">
+                    📰 <span style="margin-left: 8px;">The NYTimes</span>
+                </a>
+            </div>
+            
+            
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BookBuzz, Inc.</p>
+        </div>
+    </footer>
+
+</html>
